@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Bi&Sc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewBag.Title - Catalog</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/catalogPage.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <div class="container bootstrap snipets">
+        <h1 class="text-center text-muted">Scooters Catalog</h1>
+
+        @{
+            if (Model != null)
+            {
+                foreach (var Data in Model)
+                {
+                    <div class="flex-wrap">
+                        <div class="col-xs-6 col-md-4">
+                            <div class="product tumbnail thumbnail-3">
+                                <a href="#"><img src="" style="width:20%" /></a>
+                                <div class="caption">
+                                    <h6><a href="~/Scooter/ScooterProp/@Data.Id">@Data.Name</a></h6>
+                                   <span class="price sale">$@Data.Price</span>
+                                 </div>
+                            </div>
+                            <div class="bottom-right">
+                                <button type="button" class="btn btn-primary">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+</body>
+</html>

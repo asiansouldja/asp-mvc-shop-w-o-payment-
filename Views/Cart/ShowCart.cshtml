@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int total = 0;
+}
+
+<h2>ShowCart</h2>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    @{
+                       
+                            foreach (var Data in Model)
+                            {
+                            total = Data.Price;
+                            <tbody>
+                                <tr>
+                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                    <td>@Data.Name</td>
+                                    <td>In stock</td>
+                                    <td><input class="form-control" type="text" value="1" /></td>
+                                    <td class="text-right">@Data.Price $</td>
+                                    <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                                </tr>
+
+                            </tbody>
+                                }
+                            }
+                        
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>Total</strong></td>
+                        <td class="text-right"><strong>@total $</strong></td>
+                    </tr>
+                    </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="pull-right">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
